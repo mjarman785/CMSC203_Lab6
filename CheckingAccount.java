@@ -1,5 +1,5 @@
 public class CheckingAccount extends BankAccount {
-	final private double fee = 0.15;
+	private static final double FEE = 0.15;
 	
 	public CheckingAccount (String name, double amount) {
 		super(name, amount);
@@ -7,7 +7,7 @@ public class CheckingAccount extends BankAccount {
 	}
 	
 	public boolean withdraw (double amount) {
-		if (super.withdraw(amount + fee))
+		if (super.withdraw(amount + FEE))
 			return true;
 		return false;
 	}

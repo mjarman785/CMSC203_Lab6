@@ -10,16 +10,15 @@ public class SavingsAccount extends BankAccount {
 	
 	public SavingsAccount(SavingsAccount oldAccount, double amount) {
 		super(oldAccount, amount);
-		savingsNumber++;
-		this.accountNumber = oldAccount.accountNumber.substring(0, (oldAccount.accountNumber.length() - 2));
-		this.accountNumber = this.accountNumber + "-" + savingsNumber;
+		this.savingsNumber = oldAccount.savingsNumber + 1;
+		this.accountNumber = super.getAccountNumber() + "-" + savingsNumber;
 	}
 	
 	public void postInterest () {
 		super.deposit(this.getBalance() * ((rate / 100) / 12));
 	}
 
-
+	@Override
 	public String getAccountNumber () {
 		return this.accountNumber;
 	}
